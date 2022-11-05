@@ -1,0 +1,21 @@
+<launch>
+  <arg name="points_input" default="/rslidar_points" />
+  <arg name="points_output" default="/rslidar_points_filter" />
+  <arg name="x_min" default="-100" />
+  <arg name="x_max" default="100" />
+  <arg name="y_min" default="-100" />
+  <arg name="y_max" default="100" />
+  <arg name="z_min" default="-0.35" />
+  <arg name="z_max" default="100" />
+
+  <node pkg="tools" name="points_filter" type="points_filter" output="screen">
+    <param name="points_input" value="$(arg points_input)" />
+    <param name="points_output" value="$(arg points_output)" />
+    <param name="x_min" value="$(arg x_min)" />
+    <param name="x_max" value="$(arg x_max)" />
+    <param name="y_min" value="$(arg y_min)" />
+    <param name="y_max" value="$(arg y_max)" />
+    <param name="z_min" value="$(arg z_min)" />
+    <param name="z_max" value="$(arg z_max)" />
+  </node>
+</launch>

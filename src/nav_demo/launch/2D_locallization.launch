@@ -1,0 +1,26 @@
+<launch>
+
+ <!-- map start -->
+    <!-- rslidar start -->
+    <include file="$(find rslidar_sdk)/launch/mystart.launch"/>
+    <!-- 3d to 2d -->
+    <include file="$(find nav_demo)/launch/pointcloud_to_scan.launch"/>
+
+    <!-- <node pkg="rviz" name="rviz" type="rviz" args="-d $(find nav_demo)/rviz/default.rviz" /> -->
+  
+<!-- <param name="/use_sim_time" value="true" /> -->
+  <param name="/use_sim_time" value="false" />  <!--//1.仿真为true-->
+ 
+  <node name="cartographer_node" pkg="cartographer_ros"
+      type="cartographer_node" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename 2d_localization.lua  //3.纯定位接口参数设置 
+          <!-- -load_state_filename $(arg load_state_filename)" -->
+          -load_state_filename /home/um01/mymap.pbstream" <!--//4.纯定位使用的地图，我是直接用固定路径,这里按照自己的路径修改即可-->
+      output="screen">
+
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"
+      type="cartographer_occupancy_grid_node" args="-resolution 0.05" />
+ <!--//5.修改文件occupancy_node_main.cc  增加是否纯定位模式参数pure_localization（如果选择直接注释就不需要增加这个参数了）-->
+
+
