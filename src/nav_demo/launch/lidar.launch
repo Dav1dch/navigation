@@ -1,0 +1,8 @@
+<launch>
+    <!-- rslidar start -->
+    <include file="$(find rslidar_sdk)/launch/mystart.launch"/>
+    <!-- 3d to 2d -->
+    <include file="$(find nav_demo)/launch/pointcloud_to_scan.launch"/>
+</launch>
+
+

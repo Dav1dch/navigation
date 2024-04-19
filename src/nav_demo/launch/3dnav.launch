@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- map start -->
+    <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find nav_demo)/map/map.yaml"/> -->
+    <!-- rslidar start -->
+    <!-- <include file="$(find rslidar_sdk)/launch/mystart.launch"/> -->
+    <!-- 3d to 2d -->
+    <include file="$(find nav_demo)/launch/pointcloud_to_scan.launch"/>
+    <!-- odom -->
+    <!-- <include file="$(find rf2o_laser_odometry)/launch/odometry.launch"/> -->
+    <!-- amcl start -->
+    <!-- <include file="$(find nav_demo)/launch/amcl.launch"/> -->
+    <!-- move_base -->
+    <include file="$(find nav_demo)/launch/3d_move_base.launch"/>
+    <!-- car movement -->
+    <!-- <include file="$(find yhs_can_control)/launch/yhs_can_control.launch"/> -->
+    <!-- car control -->
+    <!-- <include file="$(find car_control)/launch/start.launch"/> -->
+
+    <!-- <node pkg="rviz" name="rviz" type="rviz" args="-d $(find nav_demo)/rviz/default.rviz" /> -->
+</launch>
+
+

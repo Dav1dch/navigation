@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- map start -->
+    <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find nav_demo)/map/map.yaml"/> -->
+    <!-- rslidar start -->
+    <include file="$(find rslidar_sdk)/launch/mystart.launch"/>
+    <!-- carDriver start -->
+    <include file="$(find yhs_can_control)/launch/yhs_can_control.launch"/>
+    <!-- imu start -->
+    <include file="$(find sanchi_amov)/launch/imu_100D2.launch"/>
+    <!-- odom -->
+    <include file="$(find wheel_odom)/launch/start.launch"/>
+    <!-- ekf -->
+    <include file="$(find robot_pose_ekf)/launch/ekf.launch"/>
+    <!-- cartographer -->
+    <include file="$(find cartographer_ros)/launch/my_demo_backpack_3d_localization.launch"/>
+    <!-- car movement -->
+    <!-- <include file="$(find yhs_can_control)/launch/yhs_can_control.launch"/> -->
+    <!-- car control -->
+    <!-- <include file="$(find car_control)/launch/start.launch"/> -->
+
+    <!-- <node pkg="rviz" name="rviz" type="rviz" args="-d $(find nav_demo)/rviz/default.rviz" /> -->
+</launch>
+
+

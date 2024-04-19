@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>nav_demo</name>
+  <version>1.0.0</version>
+  <description>nav_demo</description>
+
+  <maintainer email="fy220606@163.com">fy</maintainer>
+
+  <license>nav_demo</license>
+
+
+
+  <author>fy</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+</package>
